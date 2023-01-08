@@ -2272,6 +2272,17 @@ html {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-orange-500 {
+  --tw-gradient-from: #F57C00;
+  --tw-gradient-to: rgba(245, 124, 0, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-yellow-200 {
+  --tw-gradient-to: #FAF0BE;
+}
+
+
 .from-blue-100{
   --tw-gradient-from: #E6F0FD;
   --tw-gradient-to: rgb(230 240 253 / 0);

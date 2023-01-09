@@ -2276,13 +2276,13 @@ html {
   --tw-gradient-from: #F57C00;
   --tw-gradient-to: rgba(245, 124, 0, 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-      color: darken(#F57C00, 10%);
+  color: darken(#F57C00, 50%);
 }
 .from-orange-600 {
   --tw-gradient-from: #F57C00;
   --tw-gradient-to: rgba(245, 124, 0, 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-    color: darken(#F57C00, 5%);
+  color: darken(#F57C00, 25%);
 }
 .from-orange-500 {
   --tw-gradient-from: #F57C00;
@@ -2292,6 +2292,17 @@ html {
 
 .to-yellow-200 {
   --tw-gradient-to: #FAF0BE;
+  color: darken(#F57C00, 25%);
+}
+
+.to-yellow-300 {
+  --tw-gradient-to: #FAF0BE;
+  color: darken(#F57C00, 75%);
+}
+
+.to-yellow-400 {
+  --tw-gradient-to: #FAF0BE;
+  color: darken(#F57C00, 150%);
 }
 
 

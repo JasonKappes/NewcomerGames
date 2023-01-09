@@ -2272,6 +2272,18 @@ html {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.from-orange-700 {
+  --tw-gradient-from: #F57C00;
+  --tw-gradient-to: rgba(245, 124, 0, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      color: darken(#F57C00, 10%);
+}
+.from-orange-600 {
+  --tw-gradient-from: #F57C00;
+  --tw-gradient-to: rgba(245, 124, 0, 0);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    color: darken(#F57C00, 5%);
+}
 .from-orange-500 {
   --tw-gradient-from: #F57C00;
   --tw-gradient-to: rgba(245, 124, 0, 0);

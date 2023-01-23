@@ -2254,6 +2254,7 @@ html {
 
 .bg-gradient-to-b{
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+  margin-top: 500px;
 }
 
 .bg-gradient-to-r{
@@ -2787,6 +2788,10 @@ html {
 .placeholder-gray-500::placeholder{
   --tw-placeholder-opacity: 1;
   color: rgb(127 127 127 / var(--tw-placeholder-opacity));
+}
+
+.launchlist-widget {
+    margin-top: 1px;
 }
 
 .opacity-0{

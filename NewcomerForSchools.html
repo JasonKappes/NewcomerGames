@@ -10,63 +10,13 @@
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>
 </head>
 
-<body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
-
-    <!-- Page wrapper -->
-    <div class="flex flex-col min-h-screen overflow-hidden">  
-
-<!-- Site header -->
-        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-white backdrop-blur-sm shadow-lg' : !top }">
-            <div class="max-w-6xl mx-auto px-5 sm:px-6">
-                <div class="flex items-center justify-between h-16 md:h-20">
-
-                    <!-- Site branding -->
-                    <div class="shrink-0 mr-4">
-                        <!-- Logo -->
-                        <a class="block" href="index.html" aria-label="Cruip">
-							<img class="mx-auto rounded shadow-xl" src="./images/NewcomerLogoTransparent.png" width="50" height="50" alt="Hero" />
-                        </a>
-                    </div>
-
-                    <!-- Desktop navigation -->
-                    <nav class="hidden md:flex md:grow">
-
-                        <!-- Desktop menu links -->
-                        <ul class="flex grow justify-end flex-wrap items-center">
-                            <!--<li>
-                                <a class="text-gray-600 hover:text-gray-900 px-3 lg:px-5 py-2 flex items-center transition duration-150 ease-in-out" href="about.html">About us</a>
-                            </li>
-                            
-                        </ul>
-
-                        <!-- Desktop sign in links -->
-                        <ul class="flex grow justify-end flex-wrap items-center">
-                            <!--<li>
-                                <a class="font-medium text-gray-600 hover:text-gray-900 px-5 py-3 flex items-center transition duration-150 ease-in-out" href="signin.html">Sign in</a>
-                            </li>
-                            <li>
-                                <a class="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3" href="signup.html">
-                                    <span>Sign up</span>
-                                    <svg class="w-3 h-3 fill-current text-gray-400 shrink-0 ml-2 -mr-1" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M11.707 5.293L7 .586 5.586 2l3 3H0v2h8.586l-3 3L7 11.414l4.707-4.707a1 1 0 000-1.414z" fill-rule="nonzero" />
-                                    </svg>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </nav>
-                    
-                    
-
-                </div>
-            </div>
-        </header>	
-
-        <!-- Page content -->
+ <!-- Page content -->
         <main class="grow">
-			<section class="relative">
+            
+            <!-- Hero -->
+            <section class="relative">
 
-				<!-- Hero section -->
+                <!-- Hero section -->
 				<div class="bg-gradient-to-b from-gray-100 to-gray-200">
 					<div class="max-w-6xl mx-auto px-4 sm:px-6">
 						<div class="pt-32 pb-12 md:pt-40 md:pb-20">
@@ -81,10 +31,10 @@
 							<div class="launchlist-widget" data-key-id="6ecsKl" data-height="180px"></div>
 						</div>
 					</div>
-				</div> 	
+				</div> 						
             </section>
+            
         </main>
-    </div>
 
     <script src="./js/vendors/alpinejs.min.js" defer></script>
     <script src="./js/vendors/aos.js"></script>

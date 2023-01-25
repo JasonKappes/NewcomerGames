@@ -1300,6 +1300,11 @@ html {
   position: relative;
 }
 
+.relative2{
+  position: relative;
+  margin-top: 250px;
+}
+
 .sticky{
   position: -webkit-sticky;
   position: sticky;

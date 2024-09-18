@@ -10,6 +10,7 @@
     <link href="../css/vendors/aos.css" rel="stylesheet">
     <link href="../style.css" rel="stylesheet">
     <link href="./wisp_style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/Wisp-apple-touch.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../images/Wisp-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../images/Wisp-16x16.png">
@@ -97,26 +98,78 @@
 
                       <!-- Section header -->
                       <div class="text-center pb-4 md:pb-5">
-                          <h1 class="text-5xl md:text-4xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out">
-                              <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-teal-green-1" style="font-family: 'Fredoka', sans-serif; font-size: 70px; font-weight: 600;">Wisp</span>
-                              <div class="max-w-3xl mx-auto">
-                                  <div class="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300"></div>
-                              </div>
-                          </h1>
+                        <div class="flex justify-center mb-4" data-aos="zoom-y-out">
+                            <img src="../images/WispLogo.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 100%; height: auto;">
+                        </div>
                           <!-- Hero image -->
                           <div x-data="{ modalExpanded: false }">
                               <div class="relative flex flex-col items-center justify-center mb-8 mt-0" data-aos="zoom-y-out" data-aos-delay="450">
                                   
-                          <!-- Hero image -->
-                                <div x-data="{ modalExpanded: false }">
-                                    <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                                        <div class="flex flex-col justify-center">
-                                            <img class="mx-auto rounded shadow-xl" src="../images/WispGif.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
-                                            <svg class="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="432" viewBox="0 0 864 576" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                                            </svg>
-                                        </div>
+                                
+                                <br><span style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black; line-height: 1.5;">
+                                    Turn your favorite videogames into language learning experiences. Translate, define, listen, and understand language in a completely new way.
+                                    Supported Languages: All
+                                </span>
+                                    <div class="flex items-center justify-left mt-2">
+                                        <a class="btn-hover color-3 mb-2" href="https://wisp-on-windows.web.app/Wisp%20Setup.exe">Windows Download</a>
+                                        <!-- <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/pricing/">Windows Download</a> -->
+                                        <!-- <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/pricing/">Pricing</a> -->
                                     </div>
-
+                                </div>
+                          <!-- Hero image -->
+                          <div x-data="{ modalExpanded: false }">
+                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
+                                <div class="bg-gray-200 rounded-lg p-6 w-full max-w-4xl">
+                                    <div class="flex items-center mb-4">
+                                        <img src="../images/tearLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
+                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: black;">Shine</h3>                                    
+                                    </div>
+                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black;">Understand individual words</p></h2>
+                                    <div class="flex flex-col justify-center">
+                                        <img class="mx-auto rounded shadow-xl" src="../images/ShineUsage.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
+                                <div class="bg-gray-200 rounded-lg p-6 w-full max-w-4xl">
+                                    <div class="flex items-center mb-4">
+                                        <img src="../images/StreamLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
+                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: black;">Stream</h3> 
+                                    </div>
+                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black;">Understand phrases and sentences</p></h2>
+                                    <div class="flex flex-col justify-center">
+                                        <img class="mx-auto rounded shadow-xl" src="../images/StreamUsage.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
+                                <div class="bg-gray-200 rounded-lg p-6 w-full max-w-4xl">
+                                    <div class="flex items-center mb-4">
+                                        <img src="../images/RefreshLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
+                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: black;">Refresh (Coming Soon)</h3>
+                                    </div>
+                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black;">Study the content you've seen</p></h2>
+                                    <div class="flex flex-col justify-center">
+                                        <img class="mx-auto rounded shadow-xl" src="../images/RefreshGameplay.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
+                                <div class="bg-gray-200 rounded-lg p-6 w-full max-w-4xl">
+                                    <div class="flex items-center mb-4">
+                                        <img src="../images/ChronicleLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
+                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: black;">Reveal (Coming Soon)</h3>
+                                    </div>
+                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black;">Review the words you've seen</p></h2>
+                                    <div class="flex flex-col justify-center">
+                                        <img class="mx-auto rounded shadow-xl" src="../images/Chronicle.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                                     <!-- Modal backdrop -->
                                     <div
                                         class="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity backdrop-blur-sm"
@@ -155,16 +208,6 @@
                                     </div>
                     
                                 </div>
-
-                              <br><span style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: black; line-height: 1.5;">
-                                  Turn your favorite videogames into language learning experiences. Translate, define, listen, and understand language in a completely new way.
-                                  Supported languages: English, Spanish, Japanese, French, Portuguese, Chinese, German, Italian, Dutch
-                              </span>
-                                  <div class="flex items-center justify-left mt-2">
-                                      <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/pricing/">Download</a>
-                                      <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/pricing/">Pricing</a>
-                                  </div>
-                              </div>
                           </div>
                       </div>
                   </div>

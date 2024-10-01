@@ -17,6 +17,15 @@
     <link rel="manifest" href="images/site.webmanifest">
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+        .team-link {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+    </style>
+    
 </head>
 
 <body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
@@ -24,17 +33,24 @@
     <!-- Page wrapper -->
     <div class="flex flex-col min-h-screen overflow-hidden">
 
-    <!-- Site header -->
         <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-white backdrop-blur-sm shadow-lg' : !top }">
             <div class="max-w-6xl mx-auto px-5 sm:px-6">
-                <div class="flex items-center justify-between h-16 md:h-20">
-
-                    <!-- Site branding -->
-                    <div class="shrink-0 mr-4">
+                <div class="flex items-center h-16 md:h-20">
+                    <!-- Site branding and navigation -->
+                    <div class="flex items-center">
                         <!-- Logo -->
-                        <a class="block" href="https://newcomergames.com" aria-label="Applications">
-							<img class="mx-auto rounded shadow-xl" src="./images/NewcomerLogoTransparent.png" width="50" height="50"  alt="Newcomer Games Logo" />
+                        <a class="block mr-4" href="https://newcomergames.com" aria-label="Applications">
+                            <img class="rounded shadow-xl" src="./images/NewcomerLogoTransparent.png" width="50" height="50" alt="Newcomer Games Logo" />
                         </a>
+        
+                        <!-- Navigation -->
+                        <nav class="ml-auto">
+                            <ul class="flex items-center">
+                                <li>
+                                    <a class="team-link font-medium text-black hover:text-gray-700 px-8 py-3 flex items-center transition duration-150 ease-in-out" href="https://newcomergames.com/Team/">Team</a>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -49,21 +65,20 @@
                 <div class="max-w-6xl mx-auto px-4 sm:px-6">
                         <div class="text-center pb-4 md:pb-5">
                             <div class="pt-8 flex justify-center" data-aos="zoom-y-out">
-                                <img src="./images/WispLogo.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto;  min-width: 150px;">
+                                <img src="./images/WispLogoBorder.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto;  min-width: 150px;">
                             </div>
                             <h1 class="text-5xl md:text-4xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out" data-aos-delay="50">
-                                <span style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: rgb(109, 158, 150); line-height: 1; display: inline-block; margin-top: 10px;"  data-aos="zoom-y-out" data-aos-delay="150">Learn languages from your favorite videogames.</span>
+                                <span style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: rgb(109, 158, 150); line-height: 1; display: inline-block; margin-top: 10px;"  data-aos="zoom-y-out" data-aos-delay="150">a videogame companion for language learning</span>
                             </h1>
 
                             <div x-data="{ modalExpanded: false }">
-                                <div class="relative flex flex-col items-center justify-center mb-8 mt-0" data-aos="zoom-y-out" data-aos-delay="200">
+                                <div class="relative flex flex-col items-center justify-center mb-2 mt-0" data-aos="zoom-y-out" data-aos-delay="200">
                                     <div class="flex flex-col items-center justify-center mt-0">
-                                        <img class="mx-auto rounded shadow-xl" style="border-radius:20px; margin-top: 0;" src="./images/ShineUsage.gif" width="768" height="432" alt="Hero" />
-                                        <svg class="absolute inset-0 max-w-full mx-auto md:max-w-none h-auto" width="768" height="432" viewBox="0 0 768 432" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"></svg>
+                                        <iframe width="768" height="432" src="https://www.youtube.com/embed/vj8QbTZsRa4?si=kyx7b_PzqR3gl3X2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius:20px; margin-top: 0;"></iframe>
                                     </div>
-                                    <div class="flex items-center justify-center mt-2" data-aos="zoom-y-out" data-aos-delay="250">
-                                        <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/">See More</a>
-                                    </div>
+                                </div>
+                                <div class="flex items-center justify-center mt-1" data-aos="zoom-y-out" data-aos-delay="250">
+                                    <a class="btn-hover color-3" href="https://newcomergames.com/Wisp/">See More</a>
                                 </div>
                             </div>
                         </div>

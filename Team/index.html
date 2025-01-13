@@ -43,9 +43,23 @@
         .logo img {
             height: 40px;
         }
+        .team-member-two {
+            text-align: center;
+            margin-top: 100px;
+        }
+        .team-member-two img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 5px solid black;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-top: 10px;
+        }
         .team-member {
             text-align: center;
-            margin-top: 120px;
+            margin-top: 100px;
         }
         .team-member img {
             width: 200px;
@@ -55,7 +69,7 @@
             border-radius: 10px;
         }
         h1 {
-            margin-top: 20px;
+            margin-top: 10px;
         }
         p {
             max-width: 700px;
@@ -76,24 +90,85 @@
             height: 30px;
             border: none !important;
         }
+
+        .overhang {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .overhang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            margin-right: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu {
+            margin-left: 1rem;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: black;
+            font-weight: 500;
+            font-size: 1.25rem;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            color: #666;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="https://newcomergames.com/" target="_blank" rel="noopener noreferrer">
-                    <img src="../images/NewcomerLogoTransparent.png" alt="Newcomer Games Logo">
-                </a>
-            </div>
-        </nav>
-    </header>
+    <div class="overhang">
+        <div class="overhang-content">
+            <a href="https://newcomergames.com" class="logo">
+                <img src="../images/NewcomerLogoTransparent.png" alt="Newcomer Games Logo" />
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="https://newcomergames.com/">Products</a></li>
+                    <li><a href="https://newcomergames.com/Partnerships/">Partnerships</a></li>
+                    <li><a href="https://newcomergames.com/Team/">People</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
     <div class="container">
         <div class="team-member">
             <img src="../images/Jason.png" alt="Jay">
             <h1>Jay</h1>
-            <p>Jay is the creator of Newcomer and Wisp. These tools aim to make language learning more contextual and engaging for billions around the world.</p>
+            <p>Jay is the creator of Newcomer - a cross-platform language learning RPG, and he is currently working on Wisp. Jay previously was a software engineer working on SiriusXM software. He lives in Chicago, IL and is interested in languages, traveling, fitness, and technology.</p>
             <div class="social-links">
                 <a href="https://www.linkedin.com/in/jason-kappes/" target="_blank" rel="noopener noreferrer">
                     <img src="../images/linkedin.png" alt="LinkedIn">
@@ -101,10 +176,30 @@
                 <a href="https://x.com/NewcomerGames" target="_blank" rel="noopener noreferrer">
                     <img src="../images/xLogo.png" alt="X (formerly Twitter)">
                 </a>
+                <a href="https://github.com/JasonKappes" target="_blank" rel="noopener noreferrer">
+                    <img src="../images/githubIcon.png" alt="GitHub">
+                </a>
             </div>
-            <p>Special thanks to my family (especially my parents, Chris and Paula), Newcomer Kickstarter backers, Fred Poole, the LLP journal, LAUNCH, Greg Schwab, and all the community members who have supported me on this journey.</p>
-
         </div>
+        <div class="team-member-two">
+            <img src="../images/Zac2.png" alt="Zac">
+            <h1>Zac</h1>
+            <p>Zac is the creator of Squally - a game that teaches you how to hack, Squalr - an open-source memory editor with 1.5k stars on Github, Pantomime - a game that teaches English, and is currently working on Wisp. Zac previously worked for PayPal and Manticore Games. He lives in San Francisco, CA and is interested in games, languages, music, and technology.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/zcanann/" target="_blank" rel="noopener noreferrer">
+                    <img src="../images/linkedin.png" alt="LinkedIn">
+                </a>
+                <a href="https://x.com/zcanann" target="_blank" rel="noopener noreferrer">
+                    <img src="../images/xLogo.png" alt="X (formerly Twitter)">
+                </a>
+                <a href="https://github.com/zcanann" target="_blank" rel="noopener noreferrer">
+                    <img src="../images/githubIcon.png" alt="GitHub">
+                </a>
+            </div>
+        </div>
+
+       <!-- <p>Special thanks to my family (especially my parents, Chris and Paula), Newcomer Kickstarter backers, Fred Poole, the LLP journal, LAUNCH, Greg Schwab, and all the community members who have supported me on this journey.</p> -->
+
     </div>
 
     

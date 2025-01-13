@@ -34,6 +34,62 @@
             font-weight: 500;
         }
 
+        .overhang {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .overhang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            margin-right: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu {
+            margin-left: 1rem;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: black;
+            font-weight: 500;
+            font-size: 1.15rem;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            color: #666;
+        }
+
     </style>
     
 </head>
@@ -43,28 +99,19 @@
     <!-- Page wrapper -->
     <div class="flex flex-col min-h-screen overflow-hidden">
 
-        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-white backdrop-blur-sm shadow-lg' : !top }">
-            <div class="max-w-6xl mx-auto px-5 sm:px-6">
-                <div class="flex items-center h-16 md:h-20">
-                    <!-- Site branding and navigation -->
-                    <div class="flex items-center">
-                        <!-- Logo -->
-                        <a class="block mr-4" href="https://newcomergames.com" aria-label="Applications">
-                            <img class="rounded shadow-xl" src="./images/NewcomerLogoTransparent.png" width="50" height="50" alt="Newcomer Games Logo" />
-                        </a>
-        
-                        <!-- Navigation -->
-                        <nav class="ml-auto">
-                            <ul class="flex items-center">
-                                <li>
-                                    <a class="team-link font-medium text-black hover:text-gray-700 px-8 py-3 flex items-center transition duration-150 ease-in-out" href="https://newcomergames.com/Team/">Team</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+        <div class="overhang">
+            <div class="overhang-content">
+                <a href="https://newcomergames.com" class="logo">
+                    <img src="./images/NewcomerLogoTransparent.png" alt="Newcomer Games Logo" />
+                </a>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="https://newcomergames.com/Partnerships/">Partnerships</a></li>
+                        <li><a href="https://newcomergames.com/Team/">People</a></li>
+                    </ul>
+                </nav>
             </div>
-        </header>
+        </div>
 
 
         <!-- Page content -->
@@ -75,7 +122,7 @@
                 <div class="max-w-6xl mx-auto px-4 sm:px-6">
                         <div class="text-center pb-4 md:pb-5">
                             <div class="pt-8 flex justify-center" data-aos="zoom-y-out">
-                                <img src="./images/WispLogoBorder.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto;  min-width: 150px;">
+                                <img src="./images/WispLogoBorder.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto;  min-width: 150px; margin-top: 100px;">
                             </div>
                             <h1 class="text-5xl md:text-4xl font-extrabold leading-tighter tracking-tighter mb-4" data-aos="zoom-y-out" data-aos-delay="50">
                                 <span style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: rgb(109, 158, 150); line-height: 1; display: inline-block; margin-top: 10px;"  data-aos="zoom-y-out" data-aos-delay="150">a videogame companion for language learning</span>

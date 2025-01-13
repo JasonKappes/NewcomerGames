@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Build Together - Educational Software Development</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap">
+    <style>
+        :root {
+            --primary-color: #25c3eb;
+            --primary-dark: #257beb;
+            --text-color: #1f2937;
+            --background-color: #ffffff;
+            --section-spacing: 5rem;
+            --card-bg: #f8fafc;
+            --card-hover-bg: #f1f5f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            padding-top: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        header {
+            padding: 5rem 0;
+            text-align: center;
+            background: linear-gradient(160deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            line-height: 1.2;
+        }
+
+        .header-description {
+            font-size: 1.45rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #4b5563;
+        }
+
+        .header-description a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transition: all 0.2s;
+        }
+
+        .header-description a:hover {
+            color: var(--primary-dark);
+            text-decoration-thickness: 2px;
+        }
+
+        section {
+            padding: var(--section-spacing) 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .service-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background-color: var(--card-bg);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: var(--card-hover-bg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card p {
+            color: #4b5563;
+            font-size: 1.1rem;
+        }
+
+        .success-stories {
+            background: linear-gradient(160deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .success-stories h2 {
+            color: var(--primary-color);
+        }
+
+        .story-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .story-list li {
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            position: relative;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .story-list li:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .story-list li::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 8px;
+            background: radial-gradient(
+                800px circle at var(--mouse-x) var(--mouse-y),
+                rgba(37, 99, 235, 0.06),
+                transparent 40%
+            );
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .story-list li:hover::after {
+            opacity: 1;
+        }
+
+        .story-list li strong {
+            color: var(--primary-color);
+            font-size: 1.35rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .story-list li a {
+            color: #257beb;
+        }
+
+        .why-us {
+            background-color: white;
+        }
+        .why-us h2 {
+            font-weight: 500;
+        }
+
+        .why-us-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .why-us-list li {
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.2rem;
+        }
+
+        .why-us-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: 400;
+            font-size: 1.2rem;
+        }
+
+        .why-us-list li strong {
+            color: #257beb;
+            font-size: 1.35rem;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .story-list li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.2s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-list li a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 4rem 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-description {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .story-list li,
+            .why-us-list li {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .header-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .header-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .copy-notification {
+            opacity: 0;
+            transition: opacity 0.3s;
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .copy-notification.show {
+            opacity: 1;
+        }
+
+        .price-panel {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                       0 8px 10px -6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .price-panel h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 500;
+        }
+
+        .price-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--card-bg);
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .price-item strong {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .price-item p {
+            margin-top: 0.5rem;
+            font-size: 1.1rem !important;
+            color: #414141;
+        }
+
+        .price-panel small {
+            display: block;
+            margin-top: 1.5rem;
+            color: #666;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .email-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 0.75rem;
+            border-radius: 8px;
+            max-width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .email-text {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        .copy-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        @media (max-width: 768px) {
+            .email-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .price-item p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .price-panel {
+            max-width: 600px;
+        }
+
+        .overhang {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background-color: rgba(255, 255, 255, 0.85);
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .overhang-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            display: block;
+            margin-right: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-menu {
+            margin-left: 1rem;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li a {
+            color: black;
+            font-weight: 500;
+            font-size: 1.25rem;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.15s ease-in-out;
+        }
+
+        .nav-menu li a:hover {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="overhang">
+        <div class="overhang-content">
+            <a href="https://newcomergames.com" class="logo">
+                <img src="../images/NewcomerLogoTransparent.png" alt="Newcomer Games Logo" />
+            </a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="https://newcomergames.com/">Products</a></li>
+                    <li><a href="https://newcomergames.com/Partnerships/">Partnerships</a></li>
+                    <li><a href="https://newcomergames.com/Team/">People</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <h1>Let's Create Together</h1>
+            <p class="header-description">
+                We bring your educational visions to life. From full-stack applications to interactive prototypes, 
+                <a href="https://newcomergames.com/Team" target="_blank">Jay and Zac</a> are engineers supporting universities, researchers, and grant winners build, release, and scale their imagination.
+            </p>
+            <div class="header-buttons">
+                <a href="https://calendly.com/jasonkappes656/30min" target="_blank" class="header-button">Book a Meeting</a>
+                <a href="#" class="header-button" onclick="togglePricePanel(); return false;">See the Prices</a>
+            </div>
+            
+            <div class="email-box">
+                <span>Email Jay:</span>
+                <span class="email-text">jasonkappes656@gmail.com</span>
+                <button class="copy-button" onclick="copyEmail()">
+                    Copy <span class="copy-notification">Copied!</span>
+                </button>
+            </div>
+
+            <div id="pricePanel" class="price-panel">
+                <div class="price-content">
+                    <h3>Example Pricing</h3>
+                    <div class="price-item">
+                        <strong>Conceptual prototypes (0 - 4 weeks)</strong> $2,000 - $10,000
+                        <p>Quick proof-of-concept builds to validate ideas and secure funding.</p>
+                    </div>
+                    <div class="price-item">
+                        <strong>Polished Demos (1 - 3 months)</strong> $10,000 - $25,000
+                        <p>Refined prototypes with core features implemented.</p>
+                    </div>
+                    <div class="price-item">
+                        <strong>Small Grant Projects and MVPs (3 - 6 months)</strong> $25,000 - $100,000
+                        <p>Full-featured applications ready for initial release.</p>
+                    </div>
+                    <div class="price-item">
+                        <strong>Medium-Sized Grants and Products (6 - 12 months)</strong> $100,000 - $250,000
+                        <p>Comprehensive solutions with advanced features, analytics, and infrastructure.</p>
+                    </div>
+                    <div class="price-item">
+                        <strong>Large-Scale Product Development (12 - 24 months)</strong> $250,000 - $500,000
+                        <p>Enterprise-level educational platforms or games with complex features, extensive customization, and ongoing support.</p>
+                    </div>
+                    <small>* Prices vary based on project scope, requirements, and developers required.</small>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <h2 class="text-center">What We Build</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Learning Companions</h3>
+                    <p>AI assistants, companions, or agents for learning using local or cloud LLMs.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Games & Simulations</h3>
+                    <p>2D/3D cross-platform education games and simulations for various platforms including Web, Windows, Mac, Linux, and mobile.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Websites</h3>
+                    <p>Educational website, chatbot, or learning and management system.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Prototypes</h3>
+                    <p>Rapidly develop and publish prototypes and tech demos in days.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Datasets</h3>
+                    <p>Clean, store, and host educational datasets for researchers or private companies.</p>
+                </div>
+                <div class="service-card">
+                    <h3>APIs</h3>
+                    <p>Create and host APIs for administrators, researchers, and private companies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="text-center">Portfolio</h2>
+            <ul class="story-list">
+                <li><strong><a href="https://store.steampowered.com/app/2063790/Newcomer__A_Language_Learning_RPG/" target="_blank" style="color: #257beb">Newcomer</a></strong> A Kickstarter-funded language learning RPG. Learn and practice 9 different languages in task-based conversational scenarios.</li>
+                <li><strong><a href="https://store.steampowered.com/app/770200/Squally/" target="_blank" style="color: #257beb">Squally</a></strong> A Kickstarter-funded puzzle RPG that teaches you how to hack by rewriting assembly code.</li>
+                <li><strong><a href="https://newcomergames.com/Wisp/" target="_blank" style="color: #257beb">Wisp</a></strong> A desktop videogame companion for language learning. Wisp helps you translate, define, listen, and understand in-game text.</li>
+                <li><strong><a href="https://github.com/Squalr/Squalr" target="_blank" style="color: #257beb">Squalr</a></strong> An open-source desktop application for memory editing, demonstrating our capability in developing versatile software solutions. Starred by 1.5k users.</li>
+                <li><strong><a href="https://store.steampowered.com/app/1375630/Pantomime/" target="_blank" style="color: #257beb">Pantomime</a></strong> A 3D videogame for learning English.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="container">
+            <h2 class="text-center">Why Partner with Us?</h2>
+            <ul class="why-us-list">
+                <li><strong>Technical Excellence:</strong> Software engineers with a history of building and shipping full-stack educational applications.</li>
+                <li><strong>Track Record:</strong> The team has shipped 4 different educational applications for users internationally across multiple platforms.</li>
+                <li><strong>Commitment to Impact:</strong> Focused on creating tools that make a meaningful difference in education and research.</li>
+                <li><strong>Availability:</strong> We will be available seven days a week.</li>
+                <li><strong>Timeline:</strong> We will deliver your SBIR, Tools Competition, or grant project on time.</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.story-list li');
+            
+            cards.forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+
+                card.addEventListener('click', e => {
+                    if (e.target.tagName !== 'A') {
+                        const link = card.querySelector('a');
+                        if (link) {
+                            window.open(link.href, '_blank');
+                        }
+                    }
+                });
+            });
+        });
+
+        function copyEmail() {
+            const email = 'jasonkappes656@gmail.com';
+            navigator.clipboard.writeText(email);
+            
+            const notification = document.querySelector('.copy-notification');
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        function togglePricePanel() {
+            const panel = document.getElementById('pricePanel');
+            const overlay = document.querySelector('.overlay');
+            
+            if (panel.style.display === 'none' || !panel.style.display) {
+                panel.style.display = 'block';
+                if (!overlay) {
+                    const newOverlay = document.createElement('div');
+                    newOverlay.className = 'overlay';
+                    document.body.appendChild(newOverlay);
+                }
+                document.querySelector('.overlay').style.display = 'block';
+            } else {
+                panel.style.display = 'none';
+                document.querySelector('.overlay').style.display = 'none';
+            }
+        }
+
+        // Close price panel when clicking outside
+        document.addEventListener('click', (e) => {
+            const panel = document.getElementById('pricePanel');
+            const overlay = document.querySelector('.overlay');
+            if (e.target === overlay) {
+                panel.style.display = 'none';
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

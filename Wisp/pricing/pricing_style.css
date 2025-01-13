@@ -15,9 +15,11 @@
     font-weight: 600;
     color: #fff;
     cursor: pointer;
-    margin: 10px;
+    margin: 45px;
+    margin-top: -30px;
+    transform: translateX(-168px);
     height: auto;
-    padding: 15px 70px; /* Adjusted padding */
+    padding: 15px 50px; /* Adjusted padding */
     text-align: center;
     border: none;
     background-size: 300% 100%;
@@ -26,6 +28,7 @@
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    z-index: 100;
 }
 
 .btn-hover:hover {

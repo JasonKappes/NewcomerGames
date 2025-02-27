@@ -9,6 +9,140 @@
     text-align: center;
 }
 
+/* Text overlay styles for pricing features */
+.pricing-text-overlays {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through by default */
+}
+
+.pricing-text-item {
+    position: absolute;
+    color: #ffffff;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 3px 20px 3px 30px; /* Increased left padding */
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    pointer-events: auto; /* Make text clickable */
+    z-index: 10;
+    background-color: rgba(52, 19, 102, 0.7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    min-width: 353px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Ensure content starts from the left */
+}
+
+.pricing-text-item::before {
+    content: "→";
+    margin-right: 15px;
+    color: #ffffff;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.pricing-text-item:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+    background-color: rgba(52, 19, 102, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pricing-text-item:hover::before {
+    transform: translateX(5px);
+    color: #c45dff;
+}
+
+/* Position each text item */
+#shine-text {
+    top: 52%;
+    left: 55%;
+    transform: none;
+}
+
+#stream-text {
+    top: 62%;
+    left: 55%;
+    transform: none;
+}
+
+#chronicle-text {
+    top: 72%;
+    left: 55%;
+    transform: none;
+}
+
+#refresh-text {
+    top: 82%;
+    left: 55%;
+    transform: none;
+}
+
+/* Hover gif container */
+.hover-gif-container {
+    position: absolute;
+    /* Remove fixed width/height to allow for dynamic sizing */
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none;
+    z-index: 20;
+    padding: 20px;
+    pointer-events: auto; /* Make container interactive */
+    border: 2px solid #341366;
+    transition: all 0.3s ease;
+}
+
+/* Remove the visual connector between text and gif */
+/* .hover-gif-container::after {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 30%;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #341366;
+} */
+
+/* Feature header styling - replacing the ::before pseudo-element */
+.feature-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    color: #341366;
+    text-align: center;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #341366;
+    padding-bottom: 8px;
+}
+
+/* Feature icon styling */
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    object-fit: contain;
+}
+
+#feature-gif {
+    width: 100%;
+    height: auto; /* Allow height to adjust based on content */
+    max-height: calc(100% - 60px); /* Account for the header space */
+    object-fit: contain;
+}
+
 .btn-hover {
     width: auto;
     font-size: 16px; /* Adjusted font size */
@@ -21,14 +155,18 @@
     height: auto;
     padding: 15px 50px; /* Adjusted padding */
     text-align: center;
-    border: none;
+    border: 2px solid #000000;
+    border-bottom: 6px solid #000000; /* Added black bottom border */
     background-size: 300% 100%;
-    border-radius: 20px;
+    border-radius: 12px;
     -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
     z-index: 100;
+    box-sizing: border-box;
+    display: inline-block; /* Ensure the button takes only the space it needs */
+    line-height: 1.2; /* Adjust line height to prevent extra space */
 }
 
 .btn-hover:hover {
@@ -45,7 +183,7 @@
 
 .btn-hover.color-3 {
     background-image: linear-gradient(to right, #052247, #054347, #58DCDC, #052247);
-    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+    box-shadow: 0 4px 15px 0 rgba(79, 140, 168, 0.75);
     color: #ffffff; /* Change text color */
 }
 
@@ -53,4 +191,10 @@
     background-image: linear-gradient(to right, #56FDEF, #56FDB1, #31B7E3, #31E39C);
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
     color: #000000; /* Change text color */
+}
+
+.btn-hover.color-purple {
+    background-image: linear-gradient(to right, #341366, #481896, #c45dff, #8827c0);
+    box-shadow: 0 4px 15px 0 rgba(107, 33, 168, 0.75);
+    color: #ffffff;
 }

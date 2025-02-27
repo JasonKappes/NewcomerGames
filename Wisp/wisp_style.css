@@ -51,3 +51,12 @@
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
     color: #000000; /* Change text color */
 }
+
+.btn-hover.color-purple {
+    background-image: linear-gradient(to right, #341366, #481896, #c45dff, #8827c0);
+    box-shadow: 0 4px 15px 0 rgba(107, 33, 168, 0.75);
+    color: #ffffff;
+    border: 2px solid #000000;
+    border-bottom: 6px solid #000000;
+    border-radius: 12px;
+}

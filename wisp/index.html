@@ -22,7 +22,7 @@
     <link href="./wisp_style.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="../images/Wisp-apple-touch.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../images/Wisp-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/Wisp-32x32x.png">
   <link rel="icon" type="image/png" sizes="16x16" href="../images/Wisp-16x16.png">
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>
       <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
@@ -44,10 +44,10 @@
         
         .benefit-intro {
             font-family: 'Fredoka', sans-serif;
-            font-size: 36px;
+            font-size: 50px;
             font-weight: 500;
-            color: #003050;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: #e2e8f0;
+            text-shadow: 2px 2px 4px rgba(159, 226, 243, 0.4);
             line-height: 1.5;
             margin: 20px 0 30px;
             text-align: center;
@@ -67,51 +67,213 @@
         }
         
         .benefit-card {
-            background-color: white;
+            background-color: rgba(66, 103, 121, 0.1);
             padding: 1.25rem;
             border-radius: 0.5rem;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-            border: 1px solid #0e2c68;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             min-width: 100%;
+            backdrop-filter: blur(10px);
         }
         
         .benefit-card:hover {
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
         }
         
         .benefit-title {
             font-family: 'Fredoka', sans-serif;
-            font-size: 26px;
-            font-weight: 600;
-            color: #341366;
+            font-size: 30px;
+            font-weight: 500;
+            color: #b4e9fe;
             margin-bottom: 5px;
         }
         
         .benefit-description {
             font-family: 'Fredoka', sans-serif;
-            font-size: 20px;
-            color: #0a0931;
+            font-size: 25px;
+            color: #e2e8f0;
         }
         
         .pricing-button {
             font-family: 'Fredoka', sans-serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
             padding: 1.25rem 3rem;
             font-weight: 500;
-            width: 280px;
+            width: 380px;
             text-align: center;
+            background: linear-gradient(135deg, #09baf2, #048cdc);
+            color: black;
+            border: 2px solid #5bf8ff;
+            border-radius: 0.5rem;
+            box-shadow: 0 7px 0px #205c99;
+            transition: all 0.2s ease;
+        }
+        
+        .pricing-button:hover {
+            background: linear-gradient(135deg, #079cc9, #036ca8);
+            transform: translateY(4px);
+            box-shadow: 0 2px 0px #0f5397;
+        }
+        
+        /* Gradient background with specks */
+        .bg-speckled-gradient {
+            background: linear-gradient(to bottom, #192230, #0f172a);
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .bg-speckled-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px),
+                radial-gradient(circle, rgba(255, 255, 255, 0.1) 2.5px, transparent 2.5px);
+            background-size: 50px 50px, 70px 70px;
+            background-position: 0 0, 25px 25px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Container for animated specks */
+        .speck-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Animation for the specks */
+        .speck {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            pointer-events: none;
+            filter: blur(0.5px);
+        }
+        
+        @keyframes speckFadeIn {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.8); 
+                box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.2); 
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(186, 230, 253, 0.6);
+                filter: blur(0px);
+            }
+            100% { 
+                opacity: 0; 
+                transform: scale(1); 
+                box-shadow: 0 0 3px rgba(255, 255, 255, 0.4);
+            }
+        }
+        
+        /* Header styles */
+        .header-transparent {
+            background-color: rgba(30, 41, 59, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        /* How Wisp Works section styles */
+        .how-wisp-works-container {
+            max-width: 5xl;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .how-wisp-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 50px;
+            font-weight: 500;
+            color: #e2e8f0;
+            text-shadow: 2px 2px 4px rgba(159, 226, 243, 0.4);
+            line-height: 1.5;
+            margin: 20px 0 30px;
+            text-align: center;
+        }
+        
+        .wisp-steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .wisp-steps-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .wisp-step-card {
+            background-color: rgba(66, 103, 121, 0.1);
+            padding: 1.75rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 0 15px #bbefff;
+            border: 1px solid rgba(161, 217, 243, 0.548);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        /*.wisp-step-card:hover {
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }*/
+        
+        .wisp-step-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+        
+        .wisp-step-content {
+            text-align: center;
+        }
+        
+        .wisp-step-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 30px;
+            font-weight: 500;
+            color: #b4e9fe;
+            margin-bottom: 0.75rem;
+        }
+        
+        .wisp-step-description {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 24px;
+            color: #e2e8f0;
+            line-height: 1.6;
         }
     </style>
 </head>
 
-<body class="font-inter antialiased bg-white text-gray-900 tracking-tight">
+<body class="font-inter antialiased bg-speckled-gradient text-gray-100 tracking-tight">
 
     <!-- Page wrapper -->
     <div class="flex flex-col min-h-screen overflow-hidden">
 
         <!-- Site header -->
-        <header class="fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-white backdrop-blur-sm shadow-lg' : !top }">
+        <header class="fixed w-full z-30 header-transparent md:bg-opacity-90 transition duration-300 ease-in-out" x-data="{ top: true }" @scroll.window="top = window.pageYOffset > 10 ? false : true" :class="{ 'bg-slate-800 backdrop-blur-sm shadow-lg' : !top }">
             <div class="max-w-6xl mx-auto px-5 sm:px-6">
                 <div class="flex items-center justify-between h-16 md:h-20">
 
@@ -135,7 +297,7 @@
                             :aria-expanded="expanded"
                         >
                             <span class="sr-only">Menu</span>
-                            <svg class="w-6 h-6 fill-current text-gray-900" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <rect y="4" width="24" height="2" />
                                 <rect y="11" width="24" height="2" />
                                 <rect y="18" width="24" height="2" />
@@ -176,169 +338,253 @@
 
                       <!-- Section header -->
                       <div class="text-center pb-4 md:pb-5">
-                        <div class="flex justify-center mb-4" data-aos="zoom-y-out">
-                            <img src="../images/WispLogoBorder.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto; min-width: 150px;">
+                        <div class="flex justify-center mb-1" data-aos="zoom-y-out">
+                            <img src="../images/WispLogo2.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto; min-width: 150px;">
                         </div>
                           <!-- Hero image -->
                           <div x-data="{ modalExpanded: false }">
-                              <div class="relative flex flex-col items-center justify-center mb-8 mt-0" data-aos="zoom-y-out" data-aos-delay="450">
+                              <div class="relative flex flex-col items-center justify-center mb-4 mt-0" data-aos="zoom-y-out" data-aos-delay="450">
                                   
                                 <div class="benefit-container" data-aos="zoom-y-out" data-aos-delay="150">
-                                    <p class="benefit-intro">
-                                        Learn languages from your favorite videogames.
+                                    <p class="benefit-intro" style="margin-top: 0;">
+                                        A videogame companion for language learning. 
                                     </p>
                                     
-                                    <div class="benefit-grid">
-                                        <!-- Benefit 1 -->
-                                        <div class="benefit-card">
-                                            <div>
-                                                <h3 class="benefit-title">🎮 Game Integration</h3>
-                                                <p class="benefit-description">Wisp makes it easy to learn languages inside any videogame</p>
-                                            </div>
+                                    <div class="hero-gif-container">
+                                        <img class="hero-gif" src="../images/WispFeatureCut2.gif" alt="Wisp Features" />
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-center mt-8">
+                                        <a class="pricing-button" href="https://newcomergames.com/wisp/pricing">Pricing</a>
+                                    </div>
+
+                                    <div class="w-full my-12 relative">
+                                        <div class="absolute inset-0 flex items-center">
+                                            <div class="w-full border-t border-indigo-400"></div>
                                         </div>
-                                        
-                                        <!-- Benefit 2 -->
-                                        <div class="benefit-card">
-                                            <div>
-                                                <h3 class="benefit-title">🔍 In-game Overlay</h3>
-                                                <p class="benefit-description">Language information is overlayed on top of your game</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Benefit 3 -->
-                                        <div class="benefit-card">
-                                            <div>
-                                                <h3 class="benefit-title">⏸️ Universal Pause</h3>
-                                                <p class="benefit-description">Wisp can optionally 'pause' any game, allowing you to read and understand text before continuing</p>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Benefit 4 -->
-                                        <div class="benefit-card">
-                                            <div>
-                                                <h3 class="benefit-title">🌐 Language Support</h3>
-                                                <p class="benefit-description">Wisp supports learning and/or translating text across any language pairs</p>
+                                        <div class="relative flex justify-center">
+                                            <div class="bg-transparent px-4">
+                                                <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
-                                <div class="flex items-center justify-center mt-8">
-                                    <a class="btn-hover color-purple mb-2 pricing-button" href="https://newcomergames.com/wisp/pricing">Pricing</a>
-                                </div>
-                                
-                                <div class="w-full my-12 relative">
-                                    <div class="absolute inset-0 flex items-center">
-                                        <div class="w-full border-t border-indigo-300"></div>
-                                    </div>
-                                    <div class="relative flex justify-center">
-                                        <div class="bg-white px-4">
-                                            <div class="w-16 h-2 rounded-full bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-400"></div>
+
+                                    <div class="how-wisp-works-container mt-16 mb-12">
+                                        <h2 class="how-wisp-title">How Wisp Works</h2>
+                                        
+                                        <div class="wisp-steps-grid">
+                                            <div class="wisp-step-card">
+                                                <div class="wisp-step-icon"> 🎮 </div>
+                                                <div class="wisp-step-content">
+                                                    <h3 class="wisp-step-title">1. Pick Your Game</h3>
+                                                    <p class="wisp-step-description">Select any PC title and switch it to your target language.</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="wisp-step-card">
+                                                <div class="wisp-step-icon"> ⌨️ </div>
+                                                <div class="wisp-step-content">
+                                                    <h3 class="wisp-step-title">2. Hit Your Hotkeys</h3>
+                                                    <p class="wisp-step-description">Wisp runs in the background, and you can activate it with a hotkey to translate text on screen.</p>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="wisp-step-card">
+                                                <div class="wisp-step-icon"> 📚 </div>
+                                                <div class="wisp-step-content">
+                                                    <h3 class="wisp-step-title">3. Review at your pace</h3>
+                                                    <p class="wisp-step-description">Complete Duolingo-style lessons from the content you've bookmarked.</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+
+                                    <div class="w-full my-12 relative">
+                                        <div class="absolute inset-0 flex items-center">
+                                            <div class="w-full border-t border-indigo-400"></div>
+                                        </div>
+                                        <div class="relative flex justify-center">
+                                            <div class="bg-transparent px-4">
+                                                <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>       
                                 
                                 <div class="mb-8">
-                                    <p class="benefit-intro">Four Wisps accompany you on your journey</p>
+                                    <p class="benefit-intro">Deep-Dive: The Four Wisps</p>
                                 </div>
                               </div>
                           <!-- Hero image -->
                           <div x-data="{ modalExpanded: false }">
-                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                                <div class="bg-indigo-50 rounded-lg p-6 w-full max-w-4xl border border-indigo-100 shadow-md">
-                                    <div class="flex items-center justify-center mb-4">
-                                        <img src="../images/tearLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
-                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: #341366;">Shine (alt+q)</h3>                                    
+                            <div class="feature-card-container">
+                                <div class="feature-card">
+                                    <div class="feature-header">
+                                        <img src="../images/tearLogoBig.png" alt="Icon" class="feature-icon">
+                                        <h3 class="feature-title">Shine (alt+q)</h3>                                    
                                     </div>
-                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: #341366; text-align: center;">- Understand individual words -</h2>
-                                    <h1 style="font-family: 'Fredoka', sans-serif; font-size: 20px; padding-bottom: 10px; font-weight: 500; color: #4e3574; text-align: center;"><i>Translate</i>, <i>define</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any word</h1>
+                                    <h2 class="feature-subtitle">- Understand individual words -</h2>
+                                    <h1 class="feature-description"><i>Translate</i>, <i>define</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any word</h1>
 
-                                    <div class="flex flex-col justify-center">
-                                        <img class="mx-auto rounded shadow-xl" src="../images/ShineUsage.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    <div class="feature-image-container">
+                                        <img class="feature-image" src="../images/ShineUsage.gif" alt="Shine feature demonstration" />
                                     </div>
                                 </div>
                             </div>
                         
-                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                                <div class="bg-indigo-50 rounded-lg p-6 w-full max-w-4xl border border-indigo-100 shadow-md">
-                                    <div class="flex items-center justify-center mb-4">
-                                        <img src="../images/StreamLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
-                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: #341366;">Stream (alt+a)</h3> 
+                            <div class="feature-card-container">
+                                <div class="feature-card">
+                                    <div class="feature-header">
+                                        <img src="../images/StreamLogoBig.png" alt="Icon" class="feature-icon">
+                                        <h3 class="feature-title">Stream (alt+a)</h3> 
                                     </div>
-                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: #341366; text-align: center;">- Understand phrases and sentences -</h2>
-                                    <h1 style="font-family: 'Fredoka', sans-serif; font-size: 20px; padding-bottom: 10px; font-weight: 500; color: #4e3574; text-align: center;"><i>Translate</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any phrase or sentence</h1>
-                                    <div class="flex flex-col justify-center">
-                                        <img class="mx-auto rounded shadow-xl" src="../images/StreamUsage.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                                <div class="bg-indigo-50 rounded-lg p-6 w-full max-w-4xl border border-indigo-100 shadow-md">
-                                    <div class="flex items-center justify-center mb-4">
-                                        <img src="../images/RefreshLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
-                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: #341366;">Refresh (alt+w)</h3>
-                                    </div>
-                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: #341366; text-align: center;">- Learn at your pace -</h2>
-                                    <h1 style="font-family: 'Fredoka', sans-serif; font-size: 20px; padding-bottom: 10px; font-weight: 500; color: #4e3574; text-align: center;">Complete <i>Duolingo-style lessons</i> from the content you've bookmarked</h1>
-                                    <div class="flex flex-col justify-center">
-                                        <img class="mx-auto rounded shadow-xl" src="../images/RefreshGameplay.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    <h2 class="feature-subtitle">- Understand phrases and sentences -</h2>
+                                    <h1 class="feature-description"><i>Translate</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any phrase or sentence</h1>
+                                    <div class="feature-image-container">
+                                        <img class="feature-image" src="../images/StreamUsage.gif" alt="Stream feature demonstration" />
                                     </div>
                                 </div>
                             </div>
                         
-                            <div class="relative flex justify-center mb-8" data-aos="zoom-y-out" data-aos-delay="450">
-                                <div class="bg-indigo-50 rounded-lg p-6 w-full max-w-4xl border border-indigo-100 shadow-md">
-                                    <div class="flex items-center justify-center mb-4">
-                                        <img src="../images/ChronicleLogoBig.png" alt="Icon" class="w-16 h-16 mr-8">
-                                        <h3 style="font-family: 'Fredoka', sans-serif; font-size: 35px; font-weight: 500; color: #341366;">Chronicle (alt+r)</h3>
+                            <div class="feature-card-container">
+                                <div class="feature-card">
+                                    <div class="feature-header">
+                                        <img src="../images/RefreshLogoBig.png" alt="Icon" class="feature-icon">
+                                        <h3 class="feature-title">Refresh (alt+w)</h3>
                                     </div>
-                                    <h2 style="font-family: 'Fredoka', sans-serif; font-size: 25px; font-weight: 500; color: #341366; text-align: center;">- Review the words you've saved -</h2>
-                                    <h1 style="font-family: 'Fredoka', sans-serif; font-size: 20px; padding-bottom: 10px; font-weight: 500; color: #4e3574; text-align: center;"><i>View</i>, <i>filter</i>, and <i>practice</i> your bookmarked words and phrases</h1>
-                                    <div class="flex flex-col justify-center">
-                                        <img class="mx-auto rounded shadow-xl" src="../images/Chronicle.gif" style="border-radius:20px;" width="864" height="576" alt="Hero" />
+                                    <h2 class="feature-subtitle">- Learn at your pace -</h2>
+                                    <h1 class="feature-description">Complete <i>Duolingo-style lessons</i> from the content you've bookmarked</h1>
+                                    <div class="feature-image-container">
+                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="feature-card-container">
+                                <div class="feature-card">
+                                    <div class="feature-header">
+                                        <img src="../images/ChronicleLogoBig.png" alt="Icon" class="feature-icon">
+                                        <h3 class="feature-title">Chronicle (alt+r)</h3>
+                                    </div>
+                                    <h2 class="feature-subtitle">- Review the words you've saved -</h2>
+                                    <h1 class="feature-description"><i>View</i>, <i>filter</i>, and <i>practice</i> your bookmarked words and phrases</h1>
+                                    <div class="feature-image-container">
+                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                                    <!-- Modal backdrop -->
-                                    <div
-                                        class="fixed inset-0 z-50 bg-white bg-opacity-75 transition-opacity backdrop-blur-sm"
-                                        x-show="modalExpanded"
-                                        x-transition:enter="transition ease-out duration-200"
-                                        x-transition:enter-start="opacity-0"
-                                        x-transition:enter-end="opacity-100"
-                                        x-transition:leave="transition ease-out duration-100"
-                                        x-transition:leave-start="opacity-100"
-                                        x-transition:leave-end="opacity-0"
-                                        aria-hidden="true"
-                                        x-cloak
-                                    ></div>
 
-                                    <!-- Modal dialog -->
-                                    <div
-                                        id="modal"
-                                        class="fixed inset-0 z-50 overflow-hidden flex items-center justify-center transform px-4 sm:px-6"
-                                        role="dialog"
-                                        aria-modal="true"
-                                        aria-labelledby="modal-headline"
-                                        x-show="modalExpanded"
-                                        x-transition:enter="transition ease-out duration-200"
-                                        x-transition:enter-start="opacity-0 scale-95"
-                                        x-transition:enter-end="opacity-100 scale-100"
-                                        x-transition:leave="transition ease-out duration-200"
-                                        x-transition:leave-start="opacity-100 scale-100"
-                                        x-transition:leave-end="opacity-0 scale-95"
-                                        x-cloak
-                                    >
-                                        <div class="bg-white overflow-auto max-w-6xl w-full max-h-full" @click.outside="modalExpanded = false" @keydown.escape.window="modalExpanded = false">
-                                            <div class="relative pb-9/16">
-                                                <iframe class="absolute w-full h-full" src="https://www.youtube.com/embed/71MsdXM-RCo?si=bDkzeT56yAIz8SMx" title="Video" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-                                            </div>
-                                        </div>
-                                    </div>
-                    
+                        
+                        <div class="w-full my-12 relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-indigo-400"></div>
+                            </div>
+                            <div class="relative flex justify-center">
+                                <div class="bg-transparent px-4">
+                                    <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-8">
+                            <p class="benefit-intro">Why Wisp Is Different</p>
+                        </div>
+
+                        <div class="benefit-grid">
+                            <!-- Benefit 1 -->
+                            <div class="benefit-card">
+                                <div>
+                                    <h3 class="benefit-title">🎮 Game Integration</h3>
+                                    <p class="benefit-description">Wisp works with any game, allowing you to translate text and learn languages inside any videogame</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Benefit 2 -->
+                            <div class="benefit-card">
+                                <div>
+                                    <h3 class="benefit-title">🔍 In-game Overlay</h3>
+                                    <p class="benefit-description">Language information is overlayed on top of your game</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Benefit 3 -->
+                            <div class="benefit-card">
+                                <div>
+                                    <h3 class="benefit-title">⏸️ Universal Pause</h3>
+                                    <p class="benefit-description">Wisp can optionally 'pause' any game, allowing you to read and understand text before continuing</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Benefit 4 -->
+                            <div class="benefit-card">
+                                <div>
+                                    <h3 class="benefit-title">🌐 Language Support</h3>
+                                    <p class="benefit-description">Wisp supports learning and/or translating text across any language pairs</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full my-12 relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <div class="w-full border-t border-indigo-400"></div>
+                            </div>
+                            <div class="relative flex justify-center">
+                                <div class="bg-transparent px-4">
+                                    <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Your Learning Flow section -->
+                        <div class="mb-8">
+                            <p class="benefit-intro">Your Learning Flow</p>
+                            <p class="benefit-description" style="font-size: 30px !important;">Lessons are generated based on your bookmarked words and phrases, and are designed to be completed at your own pace</p>
+
+                        </div>
+                        
+                        <div class="learning-flow-container">
+                            <img class="learning-flow-image" src="../images/LearningFlow.png" alt="Wisp Learning Flow" />
+                        </div>
+                                    
+                        <!-- Modal backdrop -->
+                        <div
+                            class="modal-backdrop transition-opacity"
+                            x-show="modalExpanded"
+                            x-transition:enter="transition-opacity duration-200 ease-out"
+                            x-transition:enter-start="opacity-0"
+                            x-transition:enter-end="opacity-100"
+                            x-transition:leave="transition-opacity duration-100 ease-out"
+                            x-transition:leave-start="opacity-100"
+                            x-transition:leave-end="opacity-0"
+                            aria-hidden="true"
+                            x-cloak
+                        ></div>
+
+                        <!-- Modal dialog -->
+                        <div
+                            id="modal"
+                            class="modal-dialog"
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby="modal-headline"
+                            x-show="modalExpanded"
+                            x-transition:enter="transition-transform duration-200 ease-out"
+                            x-transition:enter-start="opacity-0 scale-95"
+                            x-transition:enter-end="opacity-100 scale-100"
+                            x-transition:leave="transition-transform duration-200 ease-out"
+                            x-transition:leave-start="opacity-100 scale-100"
+                            x-transition:leave-end="opacity-0 scale-95"
+                            x-cloak
+                        >
+                            <div class="modal-content" @click.outside="modalExpanded = false" @keydown.escape.window="modalExpanded = false">
+                                <div class="modal-video-container">
+                                    <iframe class="modal-video" src="https://www.youtube.com/embed/71MsdXM-RCo?si=bDkzeT56yAIz8SMx" title="Video" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    
+                            </div>
                           </div>
                       </div>
                   </div>
@@ -350,16 +596,16 @@
 
         <!-- Site footer -->
         <footer>
-            <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="footer-container">
 
                 <!-- Bottom area -->
-                <div class="md:flex md:items-center md:justify-between py-4 md:py-8 border-t border-gray-200">
+                <div class="footer-bottom">
 
                     <!-- Social links -->
-                    <ul class="flex mb-4 md:order-1 md:ml-4 md:mb-0">
+                    <ul class="footer-social">
                         <li>
-                            <a class="flex justify-center items-center text-gray-600 hover:text-gray-900 bg-white hover:bg-white-100 rounded-full shadow transition duration-150 ease-in-out" href="https://twitter.com/NewcomerGames" aria-label="Twitter">
-                                <svg class="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <a class="social-link" href="https://twitter.com/NewcomerGames" aria-label="Twitter">
+                                <svg class="social-icon" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M24 11.5c-.6.3-1.2.4-1.9.5.7-.4 1.2-1 1.4-1.8-.6.4-1.3.6-2.1.8-.6-.6-1.5-1-2.4-1-1.7 0-3.2 1.5-3.2 3.3 0 .3 0 .5.1.7-2.7-.1-5.2-1.4-6.8-3.4-.3.5-.4 1-.4 1.7 0 1.1.6 2.1 1.5 2.7-.5 0-1-.2-1.5-.4 0 1.6 1.1 2.9 2.6 3.2-.3.1-.6.1-.9.1-.2 0-.4 0-.6-.1.4 1.3 1.6 2.3 3.1 2.3-1.1.9-2.5 1.4-4.1 1.4H8c1.5.9 3.2 1.5 5 1.5 6 0 9.3-5 9.3-9.3v-.4c.7-.5 1.3-1.1 1.7-1.8z" />
                                 </svg>
                             </a>
@@ -367,9 +613,9 @@
                     </ul>
 
                     <!-- Legal links -->
-                    <div class="text-sm text-gray-600">
-                        <a class="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out mr-4" href="https://newcomergames.com/wisp/terms_of_service">Terms of Service</a>
-                        <a class="text-gray-600 hover:text-gray-900 transition duration-150 ease-in-out" href="https://newcomergames.com/wisp/privacy_policy">Privacy Policy</a>
+                    <div class="footer-legal">
+                        <a class="legal-link" href="https://newcomergames.com/wisp/terms_of_service">Terms of Service</a>
+                        <a class="legal-link" href="https://newcomergames.com/wisp/privacy_policy">Privacy Policy</a>
                     </div>
 
                 </div>
@@ -383,6 +629,128 @@
     <script src="../js/vendors/aos.js"></script>
     <script src="../js/vendors/sticky.min.js"></script>
     <script src="../js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a container for the animated specks
+            const speckContainer = document.createElement('div');
+            speckContainer.className = 'speck-container';
+            document.body.appendChild(speckContainer);
+            
+            // Create a few initial specks to verify functionality
+            for (let i = 0; i < 5; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createSpeck(x, y);
+            }
+            
+            const container = document.querySelector('.bg-speckled-gradient');
+            let isHovering = false;
+            
+            // Track mouse position for the entire document
+            let mouseX = 0;
+            let mouseY = 0;
+            
+            // Handle mouse movement directly on document level to ensure we capture all movement
+            document.addEventListener('mousemove', function(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                
+                // Always create at least one speck on mouse movement for better visibility
+                createSpeck(mouseX, mouseY);
+                
+                if (isHovering) {
+                    // Create additional specks only if we're hovering over the background
+                    const count = Math.floor(Math.random() * 2) + 1; // 1-2 specks per move
+                    for (let i = 0; i < count; i++) {
+                        setTimeout(() => {
+                            if (isHovering) {
+                                createSpeck(mouseX, mouseY);
+                            }
+                        }, i * 20);
+                    }
+                }
+            });
+            
+            // Start generating specks when hovering over the background
+            container.addEventListener('mouseenter', function(event) {
+                isHovering = true;
+                // Create a burst of specks on mouse enter
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        if (isHovering) {
+                            const x = mouseX + (Math.random() - 0.5) * 100;
+                            const y = mouseY + (Math.random() - 0.5) * 100;
+                            createSpeck(x, y);
+                        }
+                    }, i * 40);
+                }
+            });
+            
+            // Stop generating specks when not hovering over the background
+            container.addEventListener('mouseleave', function() {
+                isHovering = false;
+            });
+            
+            function createSpeck(x, y) {
+                // Ensure the values are numbers
+                x = Number(x) || 0;
+                y = Number(y) || 0;
+                
+                // Create random position near mouse
+                const angle = Math.random() * Math.PI * 2;
+                const distance = Math.random() * 100;
+                const offsetX = Math.cos(angle) * distance;
+                const offsetY = Math.sin(angle) * distance;
+                
+                const speck = document.createElement('div');
+                speck.className = 'speck';
+                speck.style.left = (x + offsetX) + 'px';
+                speck.style.top = (y + offsetY) + 'px';
+                
+                // Keep the existing size values as user requested
+                const size = Math.random() * 2 + 1;
+                speck.style.width = size + 'px';
+                speck.style.height = size + 'px';
+                
+                // Random brightness
+                const brightness = Math.random() * 0.3 + 0.7;
+                speck.style.backgroundColor = `rgba(255, 255, 255, ${brightness})`;
+                
+                // Add to container - using try/catch to ensure no errors break functionality
+                try {
+                    speckContainer.appendChild(speck);
+                } catch (e) {
+                    console.error('Error adding speck to container', e);
+                    return; // Exit if we can't add the speck
+                }
+                
+                // Set animation
+                const duration = Math.random() * 2000 + 800; // 0.8-2.8 seconds
+                speck.style.animation = `speckFadeIn ${duration}ms ease-out forwards`;
+                
+                // Remove after animation completes
+                setTimeout(() => {
+                    if (speck.parentNode === speckContainer) {
+                        try {
+                            speckContainer.removeChild(speck);
+                        } catch (e) {
+                            console.error('Error removing speck', e);
+                        }
+                    }
+                }, duration + 100);
+            }
+            
+            // Add ambient animation - occasional random specks even without hover
+            setInterval(() => {
+                if (Math.random() > 0.85) { // 15% chance each interval
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight;
+                    createSpeck(x, y);
+                }
+            }, 500);
+        });
+    </script>
 
 </body>
 

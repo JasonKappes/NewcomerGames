@@ -416,13 +416,16 @@
     justify-content: center;
     margin-bottom: 2.5rem;
     width: 100%;
+    max-width: 1000px; /* Increased from default */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero-gif {
     margin: 0 auto;
     border-radius: 12px;
     max-width: 100%;
-    width: auto;
+    width: 100%; /* Changed from auto to 100% to fill container */
     height: auto;
     border: 3px solid #b8dbff;
     box-shadow: 0 0 20px #bbefff;
@@ -430,6 +433,13 @@
     image-rendering: crisp-edges;
     transform: translateZ(0); /* Force hardware acceleration */
     backface-visibility: hidden; /* Prevent flickering */
+}
+
+/* Media query for different screen sizes */
+@media (max-width: 768px) {
+    .hero-gif-container {
+        max-width: 95%; /* Use more of screen width on mobile */
+    }
 }
 
 /* Add shine effect to give it a bit more polish */

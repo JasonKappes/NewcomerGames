@@ -24,6 +24,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
     <link rel="manifest" href="images/site.webmanifest">
+    <link rel="preload" as="image" href="https://i.ytimg.com/vi/vj8QbTZsRa4/hqdefault.jpg">
 	<script src="https://getlaunchlist.com/js/widget.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
 
@@ -90,6 +91,34 @@
             color: #666;
         }
 
+        /* YouTube Placeholder Styles */
+        .youtube-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .youtube-placeholder {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f0f0f0; /* Light grey fallback background */
+            background-image: url('https://i.ytimg.com/vi/vj8QbTZsRa4/hqdefault.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .play-button {
+            transition: background-color 0.3s ease;
+        }
+
+        .youtube-placeholder:hover .play-button {
+            background-color: rgb(255, 0, 0, 0.9) !important;
+        }
+
     </style>
     
 </head>
@@ -131,11 +160,17 @@
                             <div x-data="{ modalExpanded: false }">
                                 <div class="relative flex flex-col items-center justify-center mb-2 mt-0" data-aos="zoom-y-out" data-aos-delay="200">
                                     <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; overflow: hidden; border-radius: 20px;">
-                                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                                                src="https://www.youtube.com/embed/vj8QbTZsRa4?si=ivdQWJ5n9JGTUyFN" 
-                                                title="YouTube video player" frameborder="0" 
-                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                        <div id="youtube-player" class="youtube-container" data-video-id="vj8QbTZsRa4">
+                                            <div class="youtube-placeholder">
+                                                <img src="https://i.ytimg.com/vi/vj8QbTZsRa4/hqdefault.jpg" alt="Video Thumbnail" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; object-fit: cover;" onerror="this.onerror=null; this.src='https://i.ytimg.com/vi/vj8QbTZsRa4/mqdefault.jpg';">
+                                                <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 68px; height: 48px; background-color: rgba(0,0,0,0.7); border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                                    <svg height="100%" version="1.1" viewBox="0 0 68 48" width="100%">
+                                                        <path d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f00"></path>
+                                                        <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     
                                 </div>
@@ -232,6 +267,75 @@
     <script src="./js/vendors/aos.js"></script>
     <script src="./js/vendors/sticky.min.js"></script>
     <script src="./js/main.js"></script>
+
+    <script>
+        // Lightweight YouTube embed script
+        document.addEventListener('DOMContentLoaded', function() {
+            const youtubeContainer = document.getElementById('youtube-player');
+            if (!youtubeContainer) return;
+            
+            const videoId = youtubeContainer.dataset.videoId;
+            const placeholder = youtubeContainer.querySelector('.youtube-placeholder');
+            
+            // Preload thumbnail
+            const preloadThumbnail = new Image();
+            preloadThumbnail.src = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+            preloadThumbnail.onload = function() {
+                const thumbnailImg = document.querySelector('.youtube-placeholder img');
+                if (thumbnailImg) {
+                    thumbnailImg.src = this.src;
+                }
+            };
+            
+            // Load iframe on click
+            placeholder.addEventListener('click', function() {
+                loadYouTubeIframe(youtubeContainer, videoId);
+            });
+            
+            // Set up intersection observer for lazy loading
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach(entry => {
+                            // Load when 75% visible and scrolling down
+                            if (entry.isIntersecting && entry.intersectionRatio >= 0.75) {
+                                loadYouTubeIframe(youtubeContainer, videoId);
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    },
+                    {
+                        root: null,
+                        rootMargin: '0px',
+                        threshold: 0.75
+                    }
+                );
+                
+                observer.observe(youtubeContainer);
+            }
+        });
+        
+        function loadYouTubeIframe(container, videoId) {
+            if (container.querySelector('iframe')) return; // Already loaded
+            
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1&si=ivdQWJ5n9JGTUyFN`);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allowfullscreen', '1');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('title', 'YouTube video player');
+            iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            
+            // Replace placeholder with iframe
+            container.innerHTML = '';
+            container.appendChild(iframe);
+        }
+    </script>
 
 </body>
 

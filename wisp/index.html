@@ -37,19 +37,19 @@
         
         /* Benefit section styles */
         .benefit-container {
-            max-width: 5xl;
+            max-width: 80rem;
             margin-left: auto;
             margin-right: auto;
         }
         
         .benefit-intro {
             font-family: 'Fredoka', sans-serif;
-            font-size: 50px;
+            font-size: 2rem;
             font-weight: 500;
             color: #e2e8f0;
             text-shadow: 2px 2px 4px rgba(159, 226, 243, 0.4);
             line-height: 1.5;
-            margin: 20px 0 30px;
+            margin: 10px 0 15px;
             text-align: center;
         }
         
@@ -106,16 +106,23 @@
             text-align: center;
             background: linear-gradient(135deg, #09baf2, #048cdc);
             color: black;
-            border: 2px solid #5bf8ff;
+            border-top: 4px solid #8cf9ff;
+            border-left: 5px solid #8cf9ff;
+            border-right: 5px solid #8cf9ff;
+            border-bottom: 6px solid #8cf9ff;
             border-radius: 0.5rem;
-            box-shadow: 0 7px 0px #205c99;
+            /*box-shadow: 0 7px 0px #205c99;*/
+            box-shadow: 0 0 10px #bbefff;
+            text-shadow: 0 0 5px #bbefff;
             transition: all 0.2s ease;
         }
         
         .pricing-button:hover {
             background: linear-gradient(135deg, #079cc9, #036ca8);
+            border: 4px solid #ffffff;
             transform: translateY(4px);
-            box-shadow: 0 2px 0px #0f5397;
+            /*box-shadow: 0 2px 0px #0f5397;*/
+            box-shadow: 0 0 20px #bbefff;
         }
         
         /* Gradient background with specks */
@@ -222,11 +229,11 @@
         }
         
         .wisp-step-card {
-            background-color: rgba(66, 103, 121, 0.1);
+            background-color: rgba(173, 219, 241, 1);
             padding: 1.75rem;
             border-radius: 0.75rem;
-            box-shadow: 0 0 15px #bbefff;
-            border: 1px solid rgba(161, 217, 243, 0.548);
+            box-shadow: 0 0 15px #a7eaff;
+            border: 1px solid rgba(255, 255, 255, 0.548);
             transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
@@ -248,20 +255,21 @@
         
         .wisp-step-content {
             text-align: center;
+            color: #001720;
         }
         
         .wisp-step-title {
             font-family: 'Fredoka', sans-serif;
             font-size: 30px;
             font-weight: 500;
-            color: #b4e9fe;
+            color: #001720;
             margin-bottom: 0.75rem;
         }
         
         .wisp-step-description {
             font-family: 'Fredoka', sans-serif;
             font-size: 24px;
-            color: #e2e8f0;
+            color: #0b3444;
             line-height: 1.6;
         }
     </style>
@@ -311,7 +319,7 @@
                   </svg>
               </div>
 
-              <div class="max-w-6xl mx-auto px-4 sm:px-6">
+              <div class="max-w-3xl mx-auto px-4 sm:px-6">
 
                   <div class="pt-4 pb-0 md:pt-20 md:pb-0">
 
@@ -326,11 +334,11 @@
                                   
                                 <div class="benefit-container" data-aos="zoom-y-out" data-aos-delay="150">
                                     <p class="benefit-intro" style="margin-top: 0;">
-                                        A videogame companion for language learning. 
+                                        Learn languages from your favorite PC videogames. 
                                     </p>
                                     
                                     <div class="hero-gif-container">
-                                        <img class="hero-gif" src="../images/FeatureCutSmall.gif" alt="Wisp Features" />
+                                        <img class="hero-gif" src="../images/UpdatedInteraction.gif" alt="Wisp Features" />
                                     </div>
                                     
                                     <div class="flex items-center justify-center mt-8">
@@ -347,112 +355,155 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div class="how-wisp-works-container mt-16 mb-12">
-                                        <h2 class="how-wisp-title">How Wisp Works</h2>
-                                        
-                                        <div class="wisp-steps-grid">
-                                            <div class="wisp-step-card">
-                                                <div class="wisp-step-icon"> 🎮 </div>
-                                                <div class="wisp-step-content">
-                                                    <h3 class="wisp-step-title">1. Pick Your Game</h3>
-                                                    <p class="wisp-step-description">Select any PC title and switch it to your target language.</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="wisp-step-card">
-                                                <div class="wisp-step-icon"> ⌨️ </div>
-                                                <div class="wisp-step-content">
-                                                    <h3 class="wisp-step-title">2. Hit Your Hotkeys</h3>
-                                                    <p class="wisp-step-description">Wisp runs in the background, and you can activate it with a hotkey to translate text on screen.</p>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="wisp-step-card">
-                                                <div class="wisp-step-icon"> 📚 </div>
-                                                <div class="wisp-step-content">
-                                                    <h3 class="wisp-step-title">3. Review at your pace</h3>
-                                                    <p class="wisp-step-description">Complete Duolingo-style lessons from the content you've bookmarked.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="w-full my-12 relative">
-                                        <div class="absolute inset-0 flex items-center">
-                                            <div class="w-full border-t border-indigo-400"></div>
-                                        </div>
-                                        <div class="relative flex justify-center">
-                                            <div class="bg-transparent px-4">
-                                                <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>       
                                 
-                                <div class="mb-8">
-                                    <p class="benefit-intro">Deep-Dive: The Four Wisps</p>
-                                </div>
-                              </div>
-                          <!-- Hero image -->
-                          <div x-data="{ modalExpanded: false }">
-                            <div class="feature-card-container">
-                                <div class="feature-card">
-                                    <div class="feature-header">
-                                        <img src="../images/tearLogoBig.png" alt="Icon" class="feature-icon">
-                                        <h3 class="feature-title">Shine (alt+q)</h3>                                    
+                                <div class="w-full rounded-lg py-6 border" style="background-color: #32446167; border-width: 4px; box-shadow: 0 0 15px #fcfcfc; border-color: #ffffff7a;">
+                                    <div class="flex justify-center items-center">
+                                        <img src="../images/interactImage2.png" alt="Icon">
                                     </div>
-                                    <h2 class="feature-subtitle">- Understand individual words -</h2>
-                                    <h1 class="feature-description"><i>Translate</i>, <i>define</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any word</h1>
+                                
+                                    <!-- Hero image -->
+                                    <div x-data="{ modalExpanded: false }">
+                                        <div class="feature-card-container" x-data="{ activeTab: 'translate' }">
+                                            <div class="feature-card">
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'translate'">- Translate and learn from in-game text. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'define'" style="display: none;">- Define new words to understand potential usage. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'explain'" style="display: none;">- Receive detailed grammatical explanations. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'conjugate'" style="display: none;">- View the conjugation table for inflected words. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'toggle'" style="display: none;">- Switch between sentence-level and word-level translations. -</h2>                                    
+                                                <!-- Pill buttons -->
+                                                <div class="pill-button-container">
+                                                    <button class="pill-button interact-button" :class="{ 'active': activeTab === 'translate' }" @click="activeTab = 'translate'; document.getElementById('clickSound').play()">Translate</button>
+                                                    <button class="pill-button interact-button" :class="{ 'active': activeTab === 'define' }" @click="activeTab = 'define'; document.getElementById('clickSound').play()">Define</button>
+                                                    <button class="pill-button interact-button" :class="{ 'active': activeTab === 'explain' }" @click="activeTab = 'explain'; document.getElementById('clickSound').play()">Explain</button>
+                                                    <button class="pill-button interact-button" :class="{ 'active': activeTab === 'conjugate' }" @click="activeTab = 'conjugate'; document.getElementById('clickSound').play()">Conjugate</button>
+                                                    <button class="pill-button interact-button" :class="{ 'active': activeTab === 'toggle' }" @click="activeTab = 'toggle'; document.getElementById('clickSound').play()">Toggle Layer</button>
+                                                </div>
+            
+                                                <!-- Dynamic content area -->
+                                                <div class="feature-image-container mt-4">
+                                                    <div x-show="activeTab === 'translate'">
+                                                        <img class="feature-image" src="../images/Translation0.9.gif" alt="Translate feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'define'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Definition0.9.gif" alt="Define feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'explain'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Explanation0.9.gif" alt="Explain feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'conjugate'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Conjugation0.9.gif" alt="Conjugate feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'toggle'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Layer0.9.gif" alt="Toggle Layer feature demonstration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="feature-card-container" x-data="{ activeTab: 'flow' }">
+                                            <div class="feature-card">
+                                                <div class="flex justify-center items-center">
+                                                    <img src="../images/LearnImage.png" alt="Icon">
+                                                </div>
+                                            
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'flow'">- Complete Duolingo-style lessons based on your bookmarked words. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'definitions'" style="display: none;">- Introductory lessons for new words. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'matching'" style="display: none;">- Match definitions together to start to learn new words. -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'wordbank'" style="display: none;">- Start forming sentences with new content. -</h2>
+                                                <!-- Pill buttons -->
+                                                <div class="pill-button-container">
+                                                    <button class="pill-button learn-button" :class="{ 'active': activeTab === 'flow' }" @click="activeTab = 'flow'; document.getElementById('clickSound').play()">Flow</button>
+                                                    <button class="pill-button learn-button" :class="{ 'active': activeTab === 'definitions' }" @click="activeTab = 'definitions'; document.getElementById('clickSound').play()">Definitions</button>
+                                                    <button class="pill-button learn-button" :class="{ 'active': activeTab === 'matching' }" @click="activeTab = 'matching'; document.getElementById('clickSound').play()">Matching</button>
+                                                    <button class="pill-button learn-button" :class="{ 'active': activeTab === 'wordbank' }" @click="activeTab = 'wordbank'; document.getElementById('clickSound').play()">Word Bank</button>
+                                                </div>
+                                                
+                                                <!-- Dynamic content area -->
+                                                <div class="feature-image-container mt-4">
+                                                    <div x-show="activeTab === 'flow'">
+                                                        <img class="feature-image" src="../images/Flow0.9.gif" alt="Refresh feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'definitions'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Introductory0.9-1.gif" alt="Refresh feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'matching'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Matching0.9.gif" alt="Refresh feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'wordbank'" style="display: none;">
+                                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'correctusage'" style="display: none;">
+                                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="feature-card-container" x-data="{ activeTab: 'chronicle' }">
+                                            <div class="feature-card">
+                                                <div class="flex justify-center items-center">
+                                                    <img src="../images/ReviewImage.png" alt="Icon">
+                                                </div>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'chronicle'">- Review the words you've saved -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'flashcards'" style="display: none;">- Test your knowledge with flashcards -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'search'" style="display: none;">- Search through your saved words -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'filter'" style="display: none;">- Filter through your saved words -</h2>
+                                                
+                                                <div class="pill-button-container">
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'chronicle' }" @click="activeTab = 'chronicle'; document.getElementById('clickSound').play()">Chronicle</button>
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'flashcards' }" @click="activeTab = 'flashcards'; document.getElementById('clickSound').play()">Flashcards</button>
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'filter' }" @click="activeTab = 'filter'; document.getElementById('clickSound').play()">Filter</button>
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'search' }" @click="activeTab = 'search'; document.getElementById('clickSound').play()">Search</button>
+                                                </div>
 
-                                    <div class="feature-image-container">
-                                        <img class="feature-image" src="../images/ShineUsage.gif" alt="Shine feature demonstration" />
+                                                <div class="feature-image-container mt-4">
+                                                    <div x-show="activeTab === 'chronicle'">
+                                                        <img class="feature-image" src="../images/Chronicle0.9.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'flashcards'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Flashcards0.9.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'search'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Search0.9.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'filter'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Filter0.9.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="feature-card-container" x-data="{ activeTab: 'companionship' }">
+                                            <div class="feature-card">
+                                                <div class="flex justify-center items-center">
+                                                    <img src="../images/CompanionshipImage.png" alt="Icon">
+                                                </div>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'game integration'">- Wisp works with any game -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'universal pause'" style="display: none;">- Pause any game to analyze cutscenes -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'language support'" style="display: none;">- Search through your saved words -</h2>
+                                                
+                                                <div class="pill-button-container">
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'chronicle' }" @click="activeTab = 'chronicle'; document.getElementById('clickSound').play()">Chronicle</button>
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'flashcards' }" @click="activeTab = 'flashcards'; document.getElementById('clickSound').play()">Flashcards</button>
+                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'search' }" @click="activeTab = 'search'; document.getElementById('clickSound').play()">Search</button>
+                                                </div>
+
+                                                <div class="feature-image-container mt-4">
+                                                    <div x-show="activeTab === 'game integration'">
+                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'flashcards'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                    <div x-show="activeTab === 'search'" style="display: none;">
+                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        
-                            <div class="feature-card-container">
-                                <div class="feature-card">
-                                    <div class="feature-header">
-                                        <img src="../images/StreamLogoBig.png" alt="Icon" class="feature-icon">
-                                        <h3 class="feature-title">Stream (alt+a)</h3> 
-                                    </div>
-                                    <h2 class="feature-subtitle">- Understand phrases and sentences -</h2>
-                                    <h1 class="feature-description"><i>Translate</i>, <i>explain</i>, <i>bookmark</i>, and <i>listen to</i> any phrase or sentence</h1>
-                                    <div class="feature-image-container">
-                                        <img class="feature-image" src="../images/StreamUsage.gif" alt="Stream feature demonstration" />
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="feature-card-container">
-                                <div class="feature-card">
-                                    <div class="feature-header">
-                                        <img src="../images/RefreshLogoBig.png" alt="Icon" class="feature-icon">
-                                        <h3 class="feature-title">Refresh (alt+w)</h3>
-                                    </div>
-                                    <h2 class="feature-subtitle">- Learn at your pace -</h2>
-                                    <h1 class="feature-description">Complete <i>Duolingo-style lessons</i> from the content you've bookmarked</h1>
-                                    <div class="feature-image-container">
-                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
-                                    </div>
-                                </div>
-                            </div>
-                        
-                            <div class="feature-card-container">
-                                <div class="feature-card">
-                                    <div class="feature-header">
-                                        <img src="../images/ChronicleLogoBig.png" alt="Icon" class="feature-icon">
-                                        <h3 class="feature-title">Chronicle (alt+r)</h3>
-                                    </div>
-                                    <h2 class="feature-subtitle">- Review the words you've saved -</h2>
-                                    <h1 class="feature-description"><i>View</i>, <i>filter</i>, and <i>practice</i> your bookmarked words and phrases</h1>
-                                    <div class="feature-image-container">
-                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
                         
                         <div class="w-full my-12 relative">
@@ -513,17 +564,6 @@
                                     <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Your Learning Flow section -->
-                        <div class="mb-8">
-                            <p class="benefit-intro">Your Learning Flow</p>
-                            <p class="benefit-description" style="font-size: 30px !important;">Lessons are generated based on your bookmarked words and phrases, and are designed to be completed at your own pace</p>
-
-                        </div>
-                        
-                        <div class="learning-flow-container">
-                            <img class="learning-flow-image" src="../images/LearningFlow.png" alt="Wisp Learning Flow" />
                         </div>
                                     
                         <!-- Modal backdrop -->
@@ -604,6 +644,7 @@
 
     </div>
 
+    <audio id="clickSound" src="../sfx/Click_1.mp3" preload="auto"></audio>
     <script src="../js/vendors/alpinejs.min.js" defer></script>
     <script src="../js/vendors/aos.js"></script>
     <script src="../js/vendors/sticky.min.js"></script>

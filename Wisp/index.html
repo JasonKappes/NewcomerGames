@@ -275,7 +275,7 @@
     </style>
 </head>
 
-<body class="font-inter antialiased bg-speckled-gradient text-gray-100 tracking-tight">
+<body class="font-inter antialiased bg-speckled-gradient text-gray-100 tracking-tight" x-data="{ imageModalOpen: false, modalImageUrl: '' }">
 
     <!-- Page wrapper -->
     <div class="flex flex-col min-h-screen overflow-hidden">
@@ -363,8 +363,8 @@
                                     </div>
                                 
                                     <!-- Hero image -->
-                                    <div x-data="{ modalExpanded: false }">
-                                        <div class="feature-card-container" x-data="{ activeTab: 'translate' }">
+                                    <div x-data="{ activeTab: 'translate' }">
+                                        <div class="feature-card-container">
                                             <div class="feature-card">
                                                 <h2 class="feature-subtitle" x-show="activeTab === 'translate'">- Translate and learn from in-game text. -</h2>
                                                 <h2 class="feature-subtitle" x-show="activeTab === 'define'" style="display: none;">- Define new words to understand potential usage. -</h2>
@@ -383,19 +383,44 @@
                                                 <!-- Dynamic content area -->
                                                 <div class="feature-image-container mt-4">
                                                     <div x-show="activeTab === 'translate'">
-                                                        <img class="feature-image" src="../images/Translation0.9.gif" alt="Translate feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Translation0.9.gif" alt="Translate feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'define'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Definition0.9.gif" alt="Define feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Definition0.9.gif" alt="Define feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'explain'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Explanation0.9.gif" alt="Explain feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Explanation0.9.gif" alt="Explain feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'conjugate'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Conjugation0.9.gif" alt="Conjugate feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Conjugation0.9.gif" alt="Conjugate feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'toggle'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Layer0.9.gif" alt="Toggle Layer feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Layer0.9.gif" alt="Toggle Layer feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -422,19 +447,44 @@
                                                 <!-- Dynamic content area -->
                                                 <div class="feature-image-container mt-4">
                                                     <div x-show="activeTab === 'flow'">
-                                                        <img class="feature-image" src="../images/Flow0.9.gif" alt="Refresh feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Flow0.9.gif" alt="Refresh feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'definitions'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Introductory0.9-1.gif" alt="Refresh feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Introductory0.9-1.gif" alt="Refresh feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'matching'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Matching0.9.gif" alt="Refresh feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Matching0.9.gif" alt="Refresh feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'wordbank'" style="display: none;">
-                                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'correctusage'" style="display: none;">
-                                                        <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/RefreshGameplay.gif" alt="Refresh feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -459,45 +509,80 @@
 
                                                 <div class="feature-image-container mt-4">
                                                     <div x-show="activeTab === 'chronicle'">
-                                                        <img class="feature-image" src="../images/Chronicle0.9.gif" alt="Chronicle feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Chronicle0.9.gif" alt="Chronicle feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'flashcards'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Flashcards0.9.gif" alt="Chronicle feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Flashcards0.9.gif" alt="Chronicle feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'search'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Search0.9.gif" alt="Chronicle feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Search0.9.gif" alt="Chronicle feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div x-show="activeTab === 'filter'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Filter0.9.gif" alt="Chronicle feature demonstration" />
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/Filter0.9.gif" alt="Chronicle feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <div class="feature-card-container" x-data="{ activeTab: 'companionship' }">
+                                        <div class="feature-card-container" x-data="{ activeTab: 'gameintegration' }">
                                             <div class="feature-card">
                                                 <div class="flex justify-center items-center">
                                                     <img src="../images/CompanionshipImage.png" alt="Icon">
                                                 </div>
-                                                <h2 class="feature-subtitle" x-show="activeTab === 'game integration'">- Wisp works with any game -</h2>
-                                                <h2 class="feature-subtitle" x-show="activeTab === 'universal pause'" style="display: none;">- Pause any game to analyze cutscenes -</h2>
-                                                <h2 class="feature-subtitle" x-show="activeTab === 'language support'" style="display: none;">- Search through your saved words -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'gameintegration'">- Wisp works with any game -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'universalpause'" style="display: none;">- Wisp can pause any game to analyze cutscenes -</h2>
+                                                <h2 class="feature-subtitle" x-show="activeTab === 'languagesupport'" style="display: none;">- Wisp supports any language pairing -</h2>
                                                 
                                                 <div class="pill-button-container">
-                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'chronicle' }" @click="activeTab = 'chronicle'; document.getElementById('clickSound').play()">Chronicle</button>
-                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'flashcards' }" @click="activeTab = 'flashcards'; document.getElementById('clickSound').play()">Flashcards</button>
-                                                    <button class="pill-button review-button" :class="{ 'active': activeTab === 'search' }" @click="activeTab = 'search'; document.getElementById('clickSound').play()">Search</button>
+                                                    <button class="pill-button companionship-button" :class="{ 'active': activeTab === 'gameintegration' }" @click="activeTab = 'gameintegration'; document.getElementById('clickSound').play()">Game Integration</button>
+                                                    <button class="pill-button companionship-button" :class="{ 'active': activeTab === 'universalpause' }" @click="activeTab = 'universalpause'; document.getElementById('clickSound').play()">Universal Pause</button>
+                                                    <button class="pill-button companionship-button" :class="{ 'active': activeTab === 'languagesupport' }" @click="activeTab = 'languagesupport'; document.getElementById('clickSound').play()">Language Support</button>
                                                 </div>
 
                                                 <div class="feature-image-container mt-4">
-                                                    <div x-show="activeTab === 'game integration'">
-                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    <div x-show="activeTab === 'gameintegration'">
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/GameIntegration0.9.gif" alt="Game Integration feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div x-show="activeTab === 'flashcards'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    <div x-show="activeTab === 'universalpause'" style="display: none;">
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/WispPause0.9.gif" alt="Universal Pause feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <div x-show="activeTab === 'search'" style="display: none;">
-                                                        <img class="feature-image" src="../images/Chronicle.gif" alt="Chronicle feature demonstration" />
+                                                    <div x-show="activeTab === 'languagesupport'" style="display: none;">
+                                                        <div class="feature-image-wrapper" @click="imageModalOpen = true; modalImageUrl = $el.querySelector('img').src">
+                                                            <img class="feature-image" src="../images/LanguagePairings_0.9.gif" alt="Language Support feature demonstration" />
+                                                            <div class="expand-icon">
+                                                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path></svg>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -517,48 +602,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-8">
-                            <p class="benefit-intro">Why Wisp Is Different</p>
-                        </div>
-
-                        <div class="benefit-grid">
-                            <!-- Benefit 1 -->
-                            <div class="benefit-card">
-                                <div>
-                                    <h3 class="benefit-title">🎮 Game Integration</h3>
-                                    <p class="benefit-description">Wisp works with any game, allowing you to translate text and learn languages inside any videogame</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Benefit 2 -->
-                            <div class="benefit-card">
-                                <div>
-                                    <h3 class="benefit-title">🔍 In-game Overlay</h3>
-                                    <p class="benefit-description">Language information is overlayed on top of your game</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Benefit 3 -->
-                            <div class="benefit-card">
-                                <div>
-                                    <h3 class="benefit-title">⏸️ Universal Pause</h3>
-                                    <p class="benefit-description">Wisp can optionally 'pause' any game, allowing you to read and understand text before continuing</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Benefit 4 -->
-                            <div class="benefit-card">
-                                <div>
-                                    <h3 class="benefit-title">🌐 Language Support</h3>
-                                    <p class="benefit-description">Wisp supports learning and/or translating text across any language pairs</p>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="w-full my-12 relative">
-                            <div class="absolute inset-0 flex items-center">
-                                <div class="w-full border-t border-indigo-400"></div>
-                            </div>
                             <div class="relative flex justify-center">
                                 <div class="bg-transparent px-4">
                                     <div class="w-16 h-2 rounded-full bg-gradient-to-r from-teal-500 via-teal-500 to-teal-500"></div>
@@ -642,6 +686,37 @@
             </div>
         </footer>
 
+    </div>
+
+    <!-- Image Modal backdrop -->
+    <div
+        class="image-modal-backdrop"
+        x-show="imageModalOpen"
+        x-transition:enter="transition-opacity duration-300 ease-out"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition-opacity duration-300 ease-in"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        @click="imageModalOpen = false"
+        x-cloak
+    ></div>
+
+    <!-- Image Modal dialog -->
+    <div
+        class="image-modal-dialog"
+        x-show="imageModalOpen"
+        x-transition:enter="transition-transform duration-300 ease-out"
+        x-transition:enter-start="opacity-0 scale-95"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition-transform duration-300 ease-in"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        x-cloak
+    >
+        <div class="image-modal-content" @click.outside="imageModalOpen = false" @keydown.escape.window="imageModalOpen = false">
+            <img :src="modalImageUrl" alt="Enlarged feature image" />
+        </div>
     </div>
 
     <audio id="clickSound" src="../sfx/Click_1.mp3" preload="auto"></audio>

@@ -126,9 +126,11 @@
 .feature-image {
     margin: 0 auto;
     border-radius: 20px;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
+    /*width: 100%;
+    max-width: 100%;*/
+    width: 640px;
+    height: 360px;
+    /*height: auto;*/
     box-shadow: 0 0 15px #bbefff;
     border: 3px solid #b8dbff;
     box-shadow: 0 0 15px #bbefff;
@@ -136,6 +138,50 @@
     image-rendering: crisp-edges;
     transform: translateZ(0); /* Force hardware acceleration */
     backface-visibility: hidden; /* Prevent flickering */
+}
+
+.feature-image-wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.feature-image-wrapper .feature-image {
+    transition: transform 0.2s ease-in-out;
+}
+
+.feature-image-wrapper:hover .feature-image {
+    transform: scale(1.02);
+}
+
+.expand-icon {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.feature-image-wrapper:hover .expand-icon {
+    opacity: 1;
+}
+
+.expand-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+    stroke-width: 2.5;
 }
 
 /* Benefits section classes */
@@ -265,6 +311,44 @@
 
 .scale-100 {
     transform: scale(1);
+}
+
+/* Image Modal styling */
+.image-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 9998; /* Below the modal content */
+    background-color: rgba(0, 0, 0, 0.75);
+    transition: opacity 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
+}
+
+.image-modal-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 9999; /* Highest z-index */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.image-modal-content {
+    position: relative;
+    background-color: transparent;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
 }
 
 /* Footer styling */
@@ -415,8 +499,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 2.5rem;
-    width: 100%;
-    max-width: 1280px; /* Increased from default */
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -424,8 +507,10 @@
 .hero-gif {
     margin: 0 auto;
     border-radius: 12px;
-    max-width: 100%;
-    width: 100%; /* Changed from auto to 100% to fill container */
+    /*max-width: 100%;
+    width: 100%; */
+    width: 640;
+    height: 360;
     height: auto;
     border: 3px solid #b8dbff;
     box-shadow: 0 0 20px #bbefff;
@@ -590,6 +675,29 @@
     box-shadow: 0 2px 0px #0f5397;
     transform: translateY(2px);
     border-bottom: 4px solid #5bf8ff;
+}
+
+.companionship-button {
+    background: linear-gradient(135deg, #e03e9c, #d4236a);
+    border: 3px solid #ff9ce6;
+    border-bottom: 4px solid #ff9ce6;
+    box-shadow: 0 0 5px #ffb3ea;
+}
+
+.companionship-button:hover {
+    background: linear-gradient(135deg, #c73587, #b81f5a);
+    border: 3px solid #ff8ad9;
+    color: black;
+    box-shadow: 0 0 5px #ffb3ea;
+}
+
+.companionship-button.active {
+    background: linear-gradient(135deg, #a82d71, #9c1c4f);
+    color: white;
+    border: 1px solid #ff77d1;
+    border-color: #ff77d1;
+    box-shadow: 0 2px 0px #7a1540;
+    transform: translateY(2px);
 }
 
 .pill-button {

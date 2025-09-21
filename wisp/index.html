@@ -714,6 +714,9 @@
         x-transition:leave-end="opacity-0 scale-95"
         x-cloak
     >
+        <div class="image-modal-content" @click.outside="imageModalOpen = false" @keydown.escape.window="imageModalOpen = false">
+            <img :src="modalImageUrl" alt="Enlarged feature image" />
+        </div>
     </div>
 
     <audio id="clickSound" src="../sfx/Click_1.mp3" preload="auto"></audio>

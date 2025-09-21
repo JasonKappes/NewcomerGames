@@ -326,7 +326,7 @@
                       <!-- Section header -->
                       <div class="text-center pb-4 md:pb-5">
                         <div class="flex justify-center mb-1" data-aos="zoom-y-out">
-                            <img src="../images/WispLogo2.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto; min-width: 150px;">
+                            <img src="../images/WispLogoBorder.png" alt="Wisp Logo" class="max-w-full h-auto" style="max-width: 70%; height: auto; min-width: 150px;">
                         </div>
                           <!-- Hero image -->
                           <div x-data="{ modalExpanded: false }">
@@ -359,7 +359,7 @@
                                 
                                 <div class="w-full rounded-lg py-6 border" style="background-color: #32446167; border-width: 4px; box-shadow: 0 0 15px #fcfcfc; border-color: #ffffff7a;">
                                     <div class="flex justify-center items-center">
-                                        <img src="../images/interactImage4.png" alt="Icon">
+                                        <img src="../images/InteractImage4.png" alt="Icon">
                                     </div>
                                 
                                     <!-- Hero image -->
@@ -714,9 +714,6 @@
         x-transition:leave-end="opacity-0 scale-95"
         x-cloak
     >
-        <div class="image-modal-content" @click.outside="imageModalOpen = false" @keydown.escape.window="imageModalOpen = false">
-            <img :src="modalImageUrl" alt="Enlarged feature image" />
-        </div>
     </div>
 
     <audio id="clickSound" src="../sfx/Click_1.mp3" preload="auto"></audio>
